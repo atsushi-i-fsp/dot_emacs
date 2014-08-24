@@ -162,6 +162,7 @@
 ;; 各種モードMode
 ;;----------------------------------------------------
 (cua-mode)
+(setq cua-enable-cua-keys nil)  ; CUAキーバインドを無効化
 (global-undo-tree-mode t)
 
 ;;----------------------------------------------------
@@ -180,3 +181,7 @@
 
 (global-set-key (kbd "<zenkaku-hankaku>") 'toggle-input-method)
 
+;;----------------------------------------------------
+;; インストール後の処理
+;;----------------------------------------------------
+; $ sudo apt-get install emacs-mozc emacs-mozc-bin

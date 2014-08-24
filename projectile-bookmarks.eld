@@ -1,0 +1,1 @@
+("~/Projects/rails40/maplog/" "~/Projects/rails40/lifeman/")

@@ -13,6 +13,12 @@
 (setq inhibit-startup-message t)
 ;; 変更のあったファイルの自動再読み込み
 (global-auto-revert-mode 1)
+;; バックアップファイル自動生成無効化
+(custom-set-variables
+'(auto-save-default nil)
+'(make-backup-files nil))
+;; 行末の空白をハイライト
+(setq-default show-trailing-whitespace t)
 
 ;;----------------------------------------------------
 ;; サーバー起動 
@@ -95,6 +101,14 @@
                                ;(inf-ruby)
                                ;(robe-start)
                                ))
+;; 保存時にmagic commentを追加しないようにする
+(defadvice enh-ruby-mode-set-encoding (around stop-enh-ruby-mode-set-encoding)
+  "If enh-ruby-not-insert-magic-comment is true, stops enh-ruby-mode-set-encoding."
+  (if (and (boundp 'enh-ruby-not-insert-magic-comment)
+           (not enh-ruby-not-insert-magic-comment))
+      ad-do-it))
+(ad-activate 'enh-ruby-mode-set-encoding)
+(setq-default enh-ruby-not-insert-magic-comment t)
 
 ;;----------------------------------------------------
 ;; Helm
@@ -185,3 +199,20 @@
 ;; インストール後の処理
 ;;----------------------------------------------------
 ; $ sudo apt-get install emacs-mozc emacs-mozc-bin
+; $ sudo apt-get install silbersearcher-ag
+; $ gem install rubocop
+; $ git clone https://github.com/w3c/tidy-html5.git
+; $ cd tidy-html5
+; $ make -C build/gmake
+; $ sudo make install -C build/gmake
+; $ git clone https://github.com/yascentur/Ricty.git
+; $ sudo apt-get install fontforge
+; $ unzip migu-1m-20130617.zip
+; $ cp migu-1m-20130617/migu-*.ttf ../Ricty
+; $ cd ..
+; $ cd Ricty
+; $ wget http://levien.com/type/myfonts/Inconsolata.otf
+; $ ./ricty_generator.sh Inconsolata.otf migu-1m-regular.ttf migu-1m-bold.ttf
+; $ sudo mkdir /usr/share/fonts/truetype/ricty
+; $ sudo mv Ricty*.ttf /usr/share/fonts/truetype/ricty
+; $ fc-cache -vf

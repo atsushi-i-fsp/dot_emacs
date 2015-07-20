@@ -21,7 +21,7 @@
 (setq-default show-trailing-whitespace t)
 
 ;;----------------------------------------------------
-;; サーバー起動 
+;; サーバー起動
 ;;----------------------------------------------------
 (server-start)
 (defun iconify-emacs-when-server-is-done ()
@@ -199,7 +199,7 @@
 ;; インストール後の処理
 ;;----------------------------------------------------
 ; $ sudo apt-get install emacs-mozc-bin
-; $ sudo apt-get install silbersearcher-ag
+; $ sudo apt-get install silversearcher-ag
 ; $ gem install rubocop
 ; $ git clone https://github.com/w3c/tidy-html5.git
 ; $ cd tidy-html5

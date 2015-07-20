@@ -198,7 +198,7 @@
 ;;----------------------------------------------------
 ;; インストール後の処理
 ;;----------------------------------------------------
-; $ sudo apt-get install emacs-mozc emacs-mozc-bin
+; $ sudo apt-get install emacs-mozc-bin
 ; $ sudo apt-get install silbersearcher-ag
 ; $ gem install rubocop
 ; $ git clone https://github.com/w3c/tidy-html5.git

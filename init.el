@@ -19,6 +19,8 @@
 '(make-backup-files nil))
 ;; 行末の空白をハイライト
 (setq-default show-trailing-whitespace t)
+;; タブのスペース間隔
+(setq default-tab-width 4)
 
 ;;----------------------------------------------------
 ;; サーバー起動
@@ -111,6 +113,13 @@
 (setq-default enh-ruby-not-insert-magic-comment t)
 
 ;;----------------------------------------------------
+;; Yaml
+;;----------------------------------------------------
+;; yaml-mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.ya?ml$". yaml-mode))
+
+;;----------------------------------------------------
 ;; Helm
 ;;----------------------------------------------------
 (helm-mode 1)
@@ -173,6 +182,13 @@
 (add-hook 'web-mode-hook 'web-mode-hook)
 
 ;;----------------------------------------------------
+;; JS2 Mode
+;;----------------------------------------------------
+(require 'js2-mode)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+
+;;----------------------------------------------------
 ;; 各種モードMode
 ;;----------------------------------------------------
 (cua-mode)
@@ -200,11 +216,13 @@
 ;;----------------------------------------------------
 ; $ sudo apt-get install emacs-mozc-bin
 ; $ sudo apt-get install silversearcher-ag
-; $ gem install rubocop
+; $ gem install rubocop ruby-lint
 ; $ git clone https://github.com/w3c/tidy-html5.git
-; $ cd tidy-html5
-; $ make -C build/gmake
-; $ sudo make install -C build/gmake
+; $ cd tidy-html5/build/cmake
+; $ sudo apt-get install cmake g++
+; $ cmake ../..
+; $ make
+; $ sudo make install
 ; $ git clone https://github.com/yascentur/Ricty.git
 ; $ sudo apt-get install fontforge
 ; $ unzip migu-1m-20130617.zip
